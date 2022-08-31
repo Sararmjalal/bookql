@@ -1,5 +1,7 @@
 import React, { useMemo, useRef } from 'react'
 
+import { endpoint } from './config/constants';
+
 import {
   ApolloClient,
   createHttpLink,
@@ -11,8 +13,6 @@ import {
 import { onError } from "@apollo/client/link/error";
 
 import { setContext } from '@apollo/client/link/context';
-
-const graphqlEndpoint = 'ur graphql endpoint' 
 
 // The name here doesn't really matter.
 export default function CustomApolloProvider(props) {
@@ -50,7 +50,7 @@ export default function CustomApolloProvider(props) {
     })
 
     const httpLink = createHttpLink({
-      uri: graphqlEndpoint,
+      uri: endpoint,
     });
 
     const link = ApolloLink.from([errorLink, authLink, httpLink])
