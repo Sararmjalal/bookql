@@ -1,5 +1,3 @@
-
-
 import UserAvatar from "../assets/jpg/UserAvatar.jpg"
 import BookImage from "../assets/jpg/BookImage.jpg"
 import { Link } from "react-router-dom"

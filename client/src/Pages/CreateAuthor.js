@@ -31,7 +31,6 @@ const CreateAuthor = () => {
         }
       }
     )
-    console.log(create.data)
 
     if (create.data.createAuthor.status == 200)
       setMessage("Your author added successfully!")

@@ -15,6 +15,7 @@ export default function GraphRoutes() {
   return (
     <Router>
      <Routes>  
+        
         <Route path="/" element={<GlobalLayout />}>
 
         <Route path="" element={<Authors />} />
@@ -27,10 +28,9 @@ export default function GraphRoutes() {
         <Route path="book/create" element={<CreateBook />} />
         <Route path="book/edit/:id" element={<EditBook />} />
           
+          <Route path="*" element={<NotFound />} />
+          
       </Route> 
-
-        <Route path="*" element={<NotFound />} />
-
       </Routes>
   </Router>
 )

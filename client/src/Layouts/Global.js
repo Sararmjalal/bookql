@@ -6,7 +6,7 @@ const GlobalLayout = () => {
   return (
     <div>
       <Header />
-      <section className="min-h-screen bg-gray-800 pt-8 pb-16 px-8 text-gray-300">
+      <section className="bg-gray-800 pt-8 pb-16 px-8 text-gray-300 min-h-screen">
         <Outlet />
       </section>
       <Copyright />

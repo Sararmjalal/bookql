@@ -24,18 +24,15 @@ const Authors = () => {
   const { loading, data, refetch } = useQuery(GET_AUTHORS)
 
   useEffect(() => {
-    if (data) {
-      refetch()
-      setAuthors(data.getAuthors)
-    }
-  }, [loading])
+    if (data) refetch()
+  }, [])
 
   if(loading) return <h1>Loading...</h1>
   return (
     <div>
       <p className="text-lg font-semibold mb-4">All Authors</p>
       {
-        !authors[0] ?
+        !data.getAuthors[0] ?
           <p className="font-light">No Authors exist yet. to create your first author,
             <Link to="/author/create">
              <span className="hover:text-white"> Click here</span>
@@ -45,7 +42,7 @@ const Authors = () => {
           :
           <div className="grid xl:grid-cols-3 lg:grid-cols-2 gap-6">
             {
-            authors.map((item, index) => {
+            data.getAuthors.map((item, index) => {
              return (
                 <Card
                 useFor="author"
