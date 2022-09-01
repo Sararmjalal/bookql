@@ -64,11 +64,19 @@ const CreateAuthor = () => {
         </div>
         <div className="lg:w-1/2">
           <p className="ml-2 font-light">{message}</p>
-          <p className="bg-black py-2 px-4 rounded-xl ml-auto w-max hover:bg-gray-900 cursor-pointer"
-            onClick={publish}
-          >
-            Publish
-          </p>
+          {
+            message !== "Your author added successfully!" ?
+              <p className="bg-black py-2 px-4 rounded-xl ml-auto w-max hover:bg-gray-900 cursor-pointer"
+                onClick={publish}
+              >
+              Publish
+              </p>
+              :
+              <p className="bg-gray-900 text-gray-500 py-2 px-4 rounded-xl ml-auto w-max"
+              >
+              Publish
+              </p>
+          }
         </div>
       </div>
     </div>  

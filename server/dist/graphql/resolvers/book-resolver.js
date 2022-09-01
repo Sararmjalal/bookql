@@ -54,7 +54,7 @@ var _createBook = function createBook(data) {
 };
 
 var _editBook = function editBook(_id, data) {
-  var thisBook = getAuthorById(_id);
+  var thisBook = getBookById(_id);
   thisBook.title = data.title;
   (0, _fs.writeFileSync)(_path["default"].join(dbDirectory, "".concat(_id, ".txt")), JSON.stringify(thisBook), "utf8");
 };

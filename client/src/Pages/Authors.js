@@ -21,12 +21,13 @@ const Authors = () => {
   document.title = `${siteTitle} | Authors`
   }, [])
 
-
-  const { loading, data } = useQuery(GET_AUTHORS)
+  const { loading, data, refetch } = useQuery(GET_AUTHORS)
 
   useEffect(() => {
-    if(data)
-    setAuthors(data.getAuthors)
+    if (data) {
+      refetch()
+      setAuthors(data.getAuthors)
+    }
   }, [loading])
 
   if(loading) return <h1>Loading...</h1>

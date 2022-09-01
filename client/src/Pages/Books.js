@@ -25,11 +25,13 @@ const Books = () => {
     }
   }`
 
-  const { loading, data } = useQuery(GET_BOOKS)
+  const { loading, data, refetch } = useQuery(GET_BOOKS)
 
   useEffect(() => {
-    if(data)
-    setBooks(data.getBooks)
+    if (data) {
+      refetch()
+      setBooks(data.getBooks)
+    }
   }, [loading])
   
   

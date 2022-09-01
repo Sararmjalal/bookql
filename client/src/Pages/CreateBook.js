@@ -33,7 +33,7 @@ const CreateBook = () => {
 
   const publish = async () => {
     
-    if (!thisBook.title || !thisBook.authorId) return setMessage("Field cannot be empty!")
+    if (!thisBook.title || !thisBook.authorId) return setMessage("Field cannot be empty.")
     
     const findId = data.getAuthors.find(author => author._id === thisBook.authorId)
 
@@ -86,19 +86,28 @@ const CreateBook = () => {
               disabled
               />
              <input
-              className="bg-gray-900 text-gray-500 outline-none py-4 px-2 rounded-xl w-1/2"
-              disabled
+                  className="bg-gray-900 text-gray-500 outline-none py-4 px-2 rounded-xl w-1/2"
+                  value={thisBook.authorId}
+                  disabled
             />
             </>
         }
         </div>
         <div>
           <p className="ml-2 font-light">{message}</p>
-          <p className="bg-black py-2 px-4 rounded-xl ml-auto w-max hover:bg-gray-900 cursor-pointer"
-            onClick={publish}
-          >
-            Publish
-          </p>
+          {
+            message !== "Your book added successfully!" ?
+              <p className="bg-black py-2 px-4 rounded-xl ml-auto w-max hover:bg-gray-900 cursor-pointer"
+                onClick={publish}
+              >
+              Publish
+              </p>
+              :
+              <p className="bg-gray-900 text-gray-500 py-2 px-4 rounded-xl ml-auto w-max"
+              >
+              Publish
+              </p>
+          }
         </div>
       </div>
     </div>  
